@@ -1,0 +1,81 @@
+\name{DMlatex}
+\alias{DMlatex}
+\alias{DMlatex.default}
+\alias{DMlatex.summary.formula.cross}
+\alias{DMlatex.summary.formula.reverse}
+\title{Dieter's special shorthand version of Hmisc/latex}
+\usage{
+  DMlatex(object, label, caption, rowname = NULL,
+    longtable = FALSE, ctable = FALSE, file = "",
+    where = "!htbp", rowlabel = "", mincapwidth, width,
+    cellTexCmds = NULL, lines.page = 10000, ...)
+}
+\arguments{
+  \item{object}{The object to be printed, usually a data
+  frame}
+
+  \item{label}{Required label}
+
+  \item{caption}{Required caption}
+
+  \item{rowname}{Rownames are not shown by default.}
+
+  \item{longtable}{Uses LaTeX longtable with a very large
+  value for line.pages, effectively disabling this
+  parameter.}
+
+  \item{ctable}{use package ctable for output.}
+
+  \item{file}{optional file name, by default output to
+  console or Sweave document}
+
+  \item{where}{positioning parameter for LaTeX}
+
+  \item{rowlabel}{Label in top left corner}
+
+  \item{mincapwidth}{for ctable, the minimum caption width
+  in mm. Requires ctable1.sty or a more recent update of
+  ctable.}
+
+  \item{width}{for ctable, width of table. Should be given
+  when column type \code{X} is used.}
+
+  \item{cellTexCmds}{see latex(Hmisc) documentation}
+
+  \item{lines.page}{set to high value to avoid problem with
+  longtable}
+
+  \item{\dots}{other parameters forwarded to
+  \code{latex.default}. Use rownames=NULL to include
+  rownames.}
+}
+\description{
+  Outputs a data frame, in my personal latex style.
+  \code{label} and \code{caption} are required, and
+  \code{ctable} is the default setting. By default,
+  rownames are not included; uses \code{rownames = NULL} to
+  include these.
+}
+\examples{
+DMlatex(warpbreaks[1:10,],"Warpbreak data","tab:warpbreak")
+  set.seed(173) # so can replicate results
+  sex =  factor(sample(c("m","f"), 500, rep=TRUE))
+  age =  rnorm(500, 50, 5)
+  treatment =  factor(sample(c("Drug","Placebo"), 500, rep=TRUE))
+  x = summary(treatment~age+sex,method="reverse")
+  DMlatex(x,caption="This is the reverse caption",
+   label="tab.summary.formula.reverse")
+  x = summary(age~sex)
+  DMlatex(x,caption="This is the default caption",label="tab")
+}
+\author{
+  Dieter Menne
+}
+\references{
+  Uses latex from Frank Harrel's Hmisc
+}
+\seealso{
+  \code{\link[Hmisc]{latex}}
+}
+\keyword{print}
+

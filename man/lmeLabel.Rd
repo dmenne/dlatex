@@ -1,0 +1,46 @@
+\name{lmeLabel}
+\alias{lmeLabel}
+\title{Returns a standard label for LaTeX tables}
+\usage{
+  lmeLabel(type, form, spelldigits = FALSE)
+}
+\arguments{
+  \item{type}{type of table, e.g. \code{contr} for
+  contrasts.}
+
+  \item{form}{a formula or a multipart string.}
+
+  \item{spelldigits}{if TRUE, digits are converted to
+  "one", "two", etc.}
+}
+\value{
+  For example,
+  \code{lmeLabel("contr","Press~Treat*Repeat")} returns
+  \code{tab:contr.press.treat.repeat}. Note lowercase in
+  result.
+}
+\description{
+  The standard label for LaTeX table references consist of
+  a first part (e.g. \code{tab:}, followed by the parameter
+  \code{type} (e.g. \code{contr} for contrasts, \code{by}
+  for breakdown lists.  A list of parameters is appended,
+  with special characters, including spaces and I(), are
+  removed, and the whole string is lowercased.
+}
+\note{
+  Used internally in \code{Dmisc}, but recommended for use
+  by other labelled tables to force consistency.
+}
+\examples{
+lmeLabel("contr","Press~Treat*Repeat+I(Repeat^2)")
+# This shows how digits are converted
+lmeLabel("contr","yield ~ I(nitro^2) * Variety + I(nitro^3)",TRUE)
+}
+\author{
+  Dieter Menne, \email{dieter.menne@menne-biomed.de}
+}
+\seealso{
+  \code{\link{latex.lme}}, \code{\link{anova.lme}}
+}
+\keyword{misc}
+

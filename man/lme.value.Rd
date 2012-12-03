@@ -1,0 +1,102 @@
+\name{lme.value}
+\alias{glm.p}
+\alias{glm.ps}
+\alias{glm.stderr}
+\alias{glm.value}
+\alias{glm.z}
+\alias{latexSNdouble}
+\alias{lm.p}
+\alias{lm.ps}
+\alias{lm.stderr}
+\alias{lm.t}
+\alias{lm.value}
+\alias{lme.DF}
+\alias{lme.p}
+\alias{lme.ps}
+\alias{lme.stderr}
+\alias{lme.value}
+\title{Retrieve items from an mixed-model, a glm, or from a lm summary table.}
+\usage{
+  lme.value(x, factor, signif = 2)
+
+  lme.stderr(x, factor, signif = 2)
+
+  lme.DF(x, factor)
+
+  lme.p(x, factor, signif = 2)
+
+  lme.ps(x, factor, signif = 2)
+
+  lm.value(x, factor, signif = 2)
+
+  lm.stderr(x, factor, signif = 2)
+
+  lm.t(x, factor, signif = 2)
+
+  lm.p(x, factor, signif = 2)
+
+  lm.ps(x, factor, signif = 2)
+
+  glm.value(x, factor, signif = 2)
+
+  glm.stderr(x, factor, signif = 2)
+
+  glm.z(x, factor, signif = 2)
+
+  glm.p(x, factor, signif = 2)
+
+  glm.ps(x, factor, signif = 2)
+
+  latexSNdouble(val)
+}
+\arguments{
+  \item{x}{an object of class \code{summary.lme}.}
+
+  \item{factor}{name of factor or interaction in contrast
+  table. Shorthand for \code{(Intercept)}}
+
+  \item{signif}{number of significant digits, default = 2.}
+
+  \item{val}{a floating point value}
+}
+\value{
+  Returns a scalar rounded for use with Sweave and
+  \code{\\Sexpr}. Functions \code{lme.ps, lm.ps} and
+  \code{glm.ps} return a string in latex math mode of the
+  form $p=0.34$.
+}
+\description{
+  Use these functions in Sweave to retrieve individual
+  factor contrast from a \code{summary.lme},
+  \code{summary.glm} or \code{summary.lm} object.
+}
+\examples{
+# Pinheiro/Bates page 47
+library(nlme)
+fm1Oats.sum <- summary(lme(yield~ordered(nitro)*Variety, data=Oats,
+  random = ~1|Block/Variety))
+lme.value(fm1Oats.sum,"VarietyMarvellous", signif = 3)
+lme.stderr(fm1Oats.sum,"VarietyMarvellous", signif = 4)
+lme.p(fm1Oats.sum,"VarietyMarvellous")
+
+# For lm
+ctl <- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)
+trt <- c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69)
+sex <- as.factor(rep(c("f","m"),10))
+group <- gl(2,10,20, labels=c("Ctl","Trt"))
+weight <- c(ctl, trt)
+x <- summary(lm(weight ~ group*sex))
+lm.value(x,"sexm", signif = 1)
+lm.stderr(x,"sexm")
+lm.p(x,"sexm", signif = 4)
+lm.ps(x,"sexm", signif = 4)
+
+latexSNdouble(1.342E-12)
+}
+\author{
+  Dieter Menne, \email{dieter.menne@menne-biomed.de}
+}
+\seealso{
+  \code{\link{latex.lme}}, \code{\link{summary.lme}}
+}
+

@@ -1,1 +1,11 @@
-*.Rd
+.Rd
+DMlatex.Rd
+DMlatexSummaryby.Rd
+Dmisc-package.Rd
+latex.anova.lme.Rd
+latex.ftable.Rd
+latex.lme.Rd
+latexODBCTable.Rd
+lme.value.Rd
+lmeLabel.Rd
+removeFormFunc.Rd
