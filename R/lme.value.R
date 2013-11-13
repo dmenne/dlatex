@@ -116,7 +116,6 @@
 "latexSNdouble" <- function (val)
 {
   # special copy of Hmisc latexSN with \\\\
-  require(Hmisc)
   x <- format(val)
   # Skip double if knitr running
   if (exists("knit")) return (latexSN(x))

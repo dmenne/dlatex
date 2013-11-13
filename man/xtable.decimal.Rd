@@ -17,19 +17,20 @@
   element name corresponds to a}
 
   \item{tocharFun}{the function used to convert the numeric
-  vecotr to a character vector. This defaults to
+  vector to a character vector. This defaults to
   \code{\link{prettyNum}}, but other possible options are
   \code{\link{as.character}}, \code{\link{format}},
   \code{\link{formatC}}, or some other custom function.}
 
   \item{...}{other parameters passed to \code{tocharFun},
-  \code{\link{xtable}}, and \code{\link{print.xtable}}.}
+  \code{\link[xtable]{xtable}}, and
+  \code{\link[xtable]{print.xtable}}.}
 }
 \description{
-  This function wraps the \code{\link{xtable}} and
-  \code{\link{print.xtable}} functions in the \code{xtable}
-  package so that numeric columns are aligned on their
-  decimal place.
+  This function wraps the \code{\link[xtable]{xtable}} and
+  \code{\link[xtable]{print.xtable}} functions in the
+  \code{xtable} package so that numeric columns are aligned
+  on their decimal place.
 }
 \details{
   See
@@ -40,6 +41,6 @@
   Jason Bryer <jason@bryer.org>
 }
 \seealso{
-  xtable
+  \code{\link[xtable]{xtable}}
 }
 

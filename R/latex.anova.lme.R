@@ -45,8 +45,6 @@ function (object, title="", parameter,file="",
    shadep=0.05, caption=NULL, ctable=FALSE, where="!htbp",...)
 {
   options(Hverbose=FALSE)
-  require('Hmisc')
-  require('nlme')
   if ((rt <- attr(object, "rt")) == 1) {
     # don't show intercept
     object <- object[-1,]

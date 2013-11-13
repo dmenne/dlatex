@@ -1,6 +1,6 @@
 #' Prints a LaTeX table with numeric columns aligned on their decimal points.
 #' 
-#' This function wraps the \code{\link{xtable}} and \code{\link{print.xtable}}
+#' This function wraps the \code{\link[xtable]{xtable}} and \code{\link[xtable]{print.xtable}}
 #' functions in the \code{xtable} package so that numeric columns are aligned
 #' on their decimal place.
 #' 
@@ -13,13 +13,14 @@
 #'        decimal points. It defaults to all columns of type numeric.
 #' @param colAlignment named character vector where each element name corresponds to a
 #         column name and the value is the LaTeX alignment (i.e. l, r, or c).
-#' @param tocharFun the function used to convert the numeric vecotr to a character
+#' @param tocharFun the function used to convert the numeric vector to a character
 #'        vector. This defaults to \code{\link{prettyNum}}, but other possible
 #'        options are \code{\link{as.character}}, \code{\link{format}}, 
 #'        \code{\link{formatC}}, or some other custom function.
-#' @param ... other parameters passed to \code{tocharFun}, \code{\link{xtable}},
-#'        and \code{\link{print.xtable}}.
-#' @seealso xtable
+#' @param ... other parameters passed to \code{tocharFun}, \code{\link[xtable]{xtable}},
+#'        and \code{\link[xtable]{print.xtable}}.
+#' @seealso \code{\link[xtable]{xtable}}
+#' @import Hmisc
 #' @export
 xtable.decimal <- function(x, 
                            cols=which(lapply(x, class) == 'numeric'), 

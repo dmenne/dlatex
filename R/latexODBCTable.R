@@ -31,6 +31,7 @@
 #' but it's convenient if single items of the table are to be displayed in
 #' Sweave.
 #' @export latexODBCTable
+#' @import RODBC
 #' @note Requires \code{ctable} in your Snw/tex file if ctable = TRUE
 #' @author Dieter Menne, \email{dieter.menne@@menne-biomed.de}
 #' @seealso \code{\link{lme.value}}, \code{\link[Hmisc]{latex}},
