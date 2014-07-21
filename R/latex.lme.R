@@ -1,17 +1,10 @@
-#' Print LaTeX contrast table for lme, lm and glm models
+#' @title Print LaTeX contrast table for lme, lm and glm models
 #' 
-#' Generates a LaTex contrast table for the \code{lme}, \code{glm} and
+#' @description  Generates a LaTex contrast table for the \code{lme}, \code{glm} and
 #' \code{lm} models, with number of significant digits shown depending on
 #' standard deviation of the contrasts.  Signficant p-values can be shaded.
-#' 
-#' @method latex lme
-#' @method latex summary.lme
-#' @method latex lm
-#' @method latex glm
-#' @aliases latex.lme 
-#' @aliases latex.summary.lme 
-#' @aliases latex.lm 
-#' @aliases latex.glm
+#'
+#' @aliases latex.lme latex.summary.lme latex.lm latex.glm
 #' @param object result of a fit by \code{lme}, \code{glm}, \code{lm}, or of
 #' \code{summary.lme}. Note that there is are no variants for \code{summary.lm}
 #' and \code{summary.glm}.
@@ -61,14 +54,6 @@
 #' fm2Oats <- lme(yield~I(sqrt(nitro))*Variety + I(nitro^2), data=Oats,
 #'   random = ~1|Block/Variety)
 #' latex(fm2Oats,"Yield with dumb model")
-#' 
-#' # The following output produces a tex file
-#' \dontrun{
-#'   w <- latex(fm1Oats,parameter="Yield",file="a.tex")
-#'   # nice (undocumented) way to add uspackage(colortbl, ctable)
-#'   w$style <- c("colortbl","ctable")
-#'   print(dvi(w))
-#' }
 #' 
 #' # For lm
 #' ctl <- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)

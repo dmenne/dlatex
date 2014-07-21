@@ -8,8 +8,8 @@ test_that("summary.formula.reverse returns latex code",{
   x = summary(treatment~age+sex,method="reverse")
   lt = capture.output(DMlatex(
     x, caption="This is the caption",label="tab.summary.formula.reverse",file=""))
-  expect_equal(length(lt),17)
-  expect_match(lt[15],
+  expect_equal(length(lt),16)
+  expect_match(lt[14],
     "\\\\caption\\{This is the caption\\\\label\\{tab.summary.formula.reverse\\}\\}")
 })
 
@@ -19,16 +19,16 @@ test_that("DMlatex returns latex code",{
   age =  rnorm(500, 50, 5)
   x= summary(age~sex)
   lt = capture.output(DMlatex(x,caption="hallo",label="tab",file=""))
-  expect_equal(length(lt),20)
-  expect_match(lt[18],
+  expect_equal(length(lt),19)
+  expect_match(lt[17],
                "\\\\caption\\{hallo~~~~~N=500\\\\label\\{tab\\}\\}")
 })
 
 
 test_that("DMlatexSummary with noQuantiles==TRUE returns latex code without quantiles",{
-#  lt = capture.output(DMlatexSummaryby(warpbreaks,noQuantiles=TRUE))
-#  expect_equal(length(lt),84)
-#  expect_equal(lt[79],"breaks&$13$&$17$&$19$&$28$&$9$&$5$&$1.7$\\tabularnewline")
+  lt = capture.output(DMlatexSummaryby(warpbreaks,noQuantiles=TRUE))
+  expect_equal(length(lt),84)
+  expect_equal(lt[78],"breaks&$13$&$17$&$19$&$28$&$9$&$5$&$1.7$\\tabularnewline")
 })
 
 

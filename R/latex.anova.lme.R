@@ -51,7 +51,7 @@ function (object, title="", parameter,file="",
     # background shading; use shadep = 0 for no shading
     sigp <- object[,"p-value"]< shadep
     pval <- format(signif(object[, "p-value"], 2))
-    pval[as.double(pval) == 0] <- "$<$.0001"
+    pval[as.double(pval) == 0] <- "\\textless .0001"
     object[, "p-value"] <- pval
     object[,"F-value"] <- round(object[,"F-value"],1)
     cellTex <- matrix(rep("", NROW(object) * NCOL(object)), nrow=NROW(object))

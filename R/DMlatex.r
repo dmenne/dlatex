@@ -1,15 +1,10 @@
-#' Dieter's special shorthand version of Hmisc/latex
-#' 
-#' Outputs a data frame, in my personal latex style.  \code{label} and
+#' @title Dieter's special shorthand version of Hmisc/latex
+#' @description  Outputs a data frame, in my personal latex style.  \code{label} and
 #' \code{caption} are required, and \code{ctable} is the default setting. By
 #' default, rownames are not included; uses \code{rownames = NULL} to include
 #' these.
 #' 
-#' 
-#' @aliases DMlatex 
-#' @aliases DMlatex.default 
-#' @aliases DMlatex.summary.formula.reverse
-#' @aliases DMlatex.summary.formula.cross
+#' @aliases DMlatex DMlatex.default DMlatex.summary.formula.reverse DMlatex.summary.formula.cross
 #' @param object The object to be printed, usually a data frame
 #' @param label Required label
 #' @param caption Required caption
@@ -30,10 +25,9 @@
 #' @param \dots other parameters forwarded to \code{latex.default}. Use
 #' rownames=NULL to include rownames.
 #' @export DMlatex 
-#' @export DMlatex.default 
+#' @export DMlatex.default
 #' @export DMlatex.summary.formula.reverse
 #' @export DMlatex.summary.formula.cross
-
 #' @author Dieter Menne
 #' @seealso \code{\link[Hmisc]{latex}}
 #' @references Uses latex from Frank Harrel's Hmisc
@@ -48,8 +42,6 @@
 #'   x = summary(treatment~age+sex,method="reverse")
 #'   DMlatex(x,caption="This is the reverse caption",
 #'    label="tab.summary.formula.reverse")
-#'   x = summary(age~sex)
-#'   DMlatex(x,caption="This is the default caption",label="tab")
 #' 
 DMlatex = function(object,label,caption,
   rowname=NULL, longtable=FALSE, ctable=FALSE,file="",
@@ -94,7 +86,7 @@ DMlatex.default = function( object,label,caption,
 #      object[,col] = round(object[,col],2)
       object[,col] = signif(object[,col],2)
       if (any(anysmall)){
-        object[anysmall, col][] <- "$< .0001$"
+        object[anysmall, col][] <- "\\textless .0001"
       }
     }
   }
