@@ -1,9 +1,9 @@
 #' @title LaTeX ANOVA table for lme
-#' 
+#'
 #' @description Generates LaTeX code for an ANOVA table from \code{lme}.  Number of
 #' significant digits depends on standard deviation of the results. Significant
 #' p-values are shaded.  The \code{(Intercept)} term is not printed.
-#' 
+#'
 #' @method latex anova.lme
 #' @param object a fitted model object inheriting from class \code{anova.lme},
 #' representing ANOVA of a mixed-effects model.
@@ -31,44 +31,46 @@
 #' @keywords print models
 #' @import Hmisc
 #' @examples
-#' 
+#'
 #' # Pinheiro/Bates page 47
 #' library(nlme)
 #' library(Hmisc)
 #' fm1Oats <- lme(yield~ordered(nitro)*Variety, data=Oats,
 #'   random = ~1|Block/Variety)
 #' latex(anova(fm1Oats),parameter="Yield",file ="")
-#' 
+#'
 #' @export
 "latex.anova.lme" <-
-function (object, title="", parameter,file="",
-   shadep=0.05, caption=NULL, ctable=FALSE, where="!htbp",...)
-{
-  options(Hverbose=FALSE)
-  if ((rt <- attr(object, "rt")) == 1) {
-    # don't show intercept
-    object <- object[-1,]
-    # background shading; use shadep = 0 for no shading
-    sigp <- object[,"p-value"]< shadep
-    pval <- format(signif(object[, "p-value"], 2))
-    pval[as.double(pval) == 0] <- "\\textless .0001"
-    object[, "p-value"] <- pval
-    object[,"F-value"] <- round(object[,"F-value"],1)
-    cellTex <- matrix(rep("", NROW(object) * NCOL(object)), nrow=NROW(object))
-    cellTex[sigp,4] <- "cellcolor[gray]{0.9}"
-    if (is.null(caption))
-      caption = paste("ANOVA for ",parameter,'.',sep="")
-    label <- lmeLabel("anova",parameter)
-    rowlabel <- ifelse(nchar(parameter) >9,"",parameter)
-    names(object) <- c("numDF","denDF","F","p")
-    latex(as.data.frame(object),title=title,rowlabel=rowlabel,
-      cellTexCmds = cellTex,file=file,where=where,
-      label=label, caption=caption,caption.loc="bottom",
-      booktabs=!ctable,
-      numeric.dollar=FALSE,col.just=rep("r",5),ctable=ctable,...)
+  function(object, title = "", parameter, file = "",
+            shadep = 0.05, caption = NULL, ctable = FALSE, where = "!htbp", ...)
+  {
+    options(Hverbose = FALSE)
+    if (attr(object, "rt") == 1) {
+      # don't show intercept
+      object <- object[-1,]
+      # background shading; use shadep = 0 for no shading
+      sigp <- object[,"p-value"] < shadep
+      pval <- format(signif(object[, "p-value"], 2))
+      pval[as.double(pval) == 0] <- "\\textless .0001"
+      object[, "p-value"] <- pval
+      object[,"F-value"] <- round(object[,"F-value"],1)
+      cellTex <-
+        matrix(rep("", NROW(object) * NCOL(object)), nrow = NROW(object))
+      cellTex[sigp,4] <- "cellcolor[gray]{0.9}"
+      if (is.null(caption))
+        caption = paste("ANOVA for ",parameter,'.',sep = "")
+      label <- lmeLabel("anova",parameter)
+      rowlabel <- ifelse(nchar(parameter) > 9,"",parameter)
+      names(object) <- c("numDF","denDF","F","p")
+      latex(
+        as.data.frame(object),title = title,rowlabel = rowlabel,
+        cellTexCmds = cellTex,file = file,where = where,
+        label = label, caption = caption,caption.loc = "bottom",
+        booktabs = !ctable,
+        numeric.dollar = FALSE,col.just = rep("r",5),ctable = ctable,...
+      )
+    }
+    else {
+      stop("latex output of anova.lme with multiple arguments not handled")
+    }
   }
-  else {
-    stop("latex output of anova.lme with multiple arguments not handled")
-  }
-}
-
