@@ -19,15 +19,15 @@
 \alias{lme.value}
 \title{Retrieve items from an mixed-model, a glm, or from a lm summary table.}
 \usage{
-lme.value(x, factor, signif = 2)
+\method{lme}{value}(x, factor, signif = 2)
 
-lme.stderr(x, factor, signif = 2)
+\method{lme}{stderr}(x, factor, signif = 2)
 
-lme.DF(x, factor)
+\method{lme}{DF}(x, factor)
 
-lme.p(x, factor, signif = 2)
+\method{lme}{p}(x, factor, signif = 2)
 
-lme.ps(x, factor, signif = 2)
+\method{lme}{ps}(x, factor, signif = 2)
 
 lm.value(x, factor, signif = 2)
 

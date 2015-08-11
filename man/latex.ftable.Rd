@@ -31,6 +31,7 @@ Prints an ftable result in latex; does not use Hmisc latex, but rather a
 home-brew hack. Hmisc should be included for method dispatching.
 }
 \examples{
+library(Hmisc)
 latex(ftable(Survived ~ ., data = Titanic), mincapwidth=100, label="tab:tit",
   caption="Titanic survivors")
 }

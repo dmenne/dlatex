@@ -9,7 +9,4 @@
 #' @docType package
 #' @author Dieter Menne, \email{dieter.menne@@menne-biomed.de}
 #' @keywords print misc
-NULL
-
-
-
+#' @importFrom nlme lme

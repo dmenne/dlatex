@@ -39,19 +39,20 @@
 #' lm.ps(x,"sexm", signif = 4)
 #'
 #' latexSNdouble(1.342E-12)
-#' @export
+#' @import nlme
+#' @export lme.value
 #' @rdname lme.value
 "lme.value" <- function(x,factor,signif = 2)
   .lme.getValue(x,factor,1,signif)
-#' @export
+#' @export lme.stderr
 #' @rdname lme.value
 "lme.stderr" <- function(x,factor,signif = 2)
   .lme.getValue(x,factor,2,signif)
-#' @export
+#' @export lme.DF
 #' @rdname lme.value
 "lme.DF" <- function(x,factor)
   .lme.getValue(x,factor,3,0)
-#' @export
+#' @export lme.p
 #' @rdname lme.value
 "lme.p" <- function(x,factor,signif = 2) {
   if (inherits(x,"summary.lme"))
@@ -62,58 +63,58 @@
   else
     stop("Needs summary.(lme,gls) for lme.value",.call = NULL)
 }
-#' @export
+#' @export lme.ps
 #' @rdname lme.value
 "lme.ps" <- function(x,factor,signif = 2) {
   paste("$p=",lme.p(x,factor,signif),"$",sep = "")
 }
 
-#' @export
+#' @export lm.value
 #' @rdname lme.value
 "lm.value" <- function(x,factor,signif = 2)
   .lm.getValue(x,factor,1,signif)
-#' @export
+#' @export lm.stderr
 #' @rdname lme.value
 "lm.stderr" <- function(x,factor,signif = 2)
   .lm.getValue(x,factor,2,signif)
-#' @export
+#' @export lm.t
 #' @rdname lme.value
 "lm.t" <- function(x,factor,signif = 2)
   .lm.getValue(x,factor,3,signif)
-#' @export
+#' @export lm.p
 #' @rdname lme.value
 "lm.p" <- function(x,factor,signif = 2)
   latexSNdouble(.lm.getValue(x,factor,4,signif))
-#' @export
+#' @export lm.ps
 #' @rdname lme.value
 "lm.ps" <- function(x,factor,signif = 2) {
   paste("$p=",lm.p(x,factor,signif),"$",sep = "")
 }
 
 
-#' @export
+#' @export glm.value
 #' @rdname lme.value
 "glm.value" <- function(x,factor,signif = 2)
   .glm.getValue(x,factor,1,signif)
-#' @export
+#' @export glm.stderr
 #' @rdname lme.value
 "glm.stderr" <- function(x,factor,signif = 2)
   .glm.getValue(x,factor,2,signif)
-#' @export
+#' @export glm.z
 #' @rdname lme.value
 "glm.z" <- function(x,factor,signif = 2)
   .glm.getValue(x,factor,3,signif)
-#' @export
+#' @export glm.p
 #' @rdname lme.value
 "glm.p" <- function(x,factor,signif = 2)
   latexSNdouble(.glm.getValue(x,factor,4,signif))
-#' @export
+#' @export glm.ps
 #' @rdname lme.value
 "glm.ps" <- function(x,factor,signif = 2) {
   paste("$p=",glm.p(x,factor,signif),"$",sep = "")
 }
 
-#' @export
+#' @export latexSNdouble
 #' @rdname lme.value
 "latexSNdouble" <- function(val)
 {

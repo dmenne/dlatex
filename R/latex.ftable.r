@@ -17,7 +17,7 @@
 #' @author Dieter Menne, \email{dieter.menne@@menne-biomed.de}
 #' @keywords print
 #' @examples
-#'
+#' library(Hmisc)
 #' latex(ftable(Survived ~ ., data = Titanic), mincapwidth=100, label="tab:tit",
 #'   caption="Titanic survivors")
 #'

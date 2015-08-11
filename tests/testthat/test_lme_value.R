@@ -4,8 +4,8 @@ library(nlme)
 test_that("Valid values are returned from lme.value and friends", {
   fm1Oats.sum <- summary(lme(yield~ordered(nitro)*Variety, data=Oats,
                              random = ~1|Block/Variety))
-  expect_equal(lme.value(fm1Oats.sum,"VarietyMarvellous", signif = 3),5.29)
-  expect_equal(lme.stderr(fm1Oats.sum,"VarietyMarvellous", signif = 4),7.079)
+  expect_equal(lme.value(fm1Oats.sum,"VarietyMarvellous", signif = 3), 5.29)
+  expect_equal(lme.stderr(fm1Oats.sum,"VarietyMarvellous", signif = 4), 7.079)
   expect_equal(lme.p(fm1Oats.sum,"VarietyMarvellous"),0.47)
   expect_equal(lme.ps(fm1Oats.sum,"VarietyMarvellous"),"$p=0.47$")
 })  
