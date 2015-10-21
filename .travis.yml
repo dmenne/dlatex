@@ -18,7 +18,10 @@ addons:
     sources:
     - r-packages-precise
     packages:
-    - r-base-dev	
+    - r-base-dev
+    - libcurl4-openssl-dev 
+    - libxml2-dev
+    - unixodbc-dev
     - r-recommended
     - pandoc
 
