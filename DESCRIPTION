@@ -1,5 +1,5 @@
 Package: Dlatex
-Title: Dieter Menne's Latex Related Runctions
+Title: Dieter Menne's Latex Related Functions
 Description: Latex functions for lme, glm, and tables.
 Version: 0.2.2
 Imports: Hmisc (>= 3.0-0),RODBC, nlme 
