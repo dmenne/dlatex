@@ -3,7 +3,7 @@ Title: Dieter Menne's Latex Related Functions
 Description: Latex functions for lme, glm, and tables.
 Version: 0.2.2
 Imports: Hmisc (>= 3.0-0),RODBC, nlme 
-Suggests: gdata, stringr, testthat, xtable
+Suggests: gdata, stringr, testthat, xtable,covr
 Author: Dieter Menne <dieter.menne@menne-biomed.de>
 Maintainer: Dieter Menne<dieter.menne@menne-biomed.de>
 License:  GPL-2

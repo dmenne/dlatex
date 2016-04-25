@@ -6,3 +6,10 @@ addons:
   apt:
     packages:
     - unixodbc-dev
+
+r-github-packages:
+  - jimhester/covr
+
+after_success:
+  - Rscript -e 'covr::coveralls()'
+  
