@@ -20,6 +20,7 @@
 #' @param ... other parameters passed to \code{tocharFun}, \code{\link[xtable]{xtable}},
 #'        and \code{\link[xtable]{print.xtable}}.
 #' @seealso \code{\link[xtable]{xtable}}
+#' @importFrom xtable xtable
 #' @import Hmisc
 #' @export
 xtable.decimal <- function(x,

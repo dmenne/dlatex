@@ -4,8 +4,8 @@
 \alias{xtable.decimal}
 \title{Prints a LaTeX table with numeric columns aligned on their decimal points.}
 \usage{
-xtable.decimal(x, cols = which(lapply(x, class) == "numeric"), colAlignment,
-  tocharFun = prettyNum, ...)
+\method{xtable}{decimal}(x, cols = which(lapply(x, class) == "numeric"),
+  colAlignment, tocharFun = prettyNum, ...)
 }
 \arguments{
 \item{x}{a data frame to create a LaTeX table from.}
