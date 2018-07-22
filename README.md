@@ -1,6 +1,5 @@
-[![Coverage Status](https://coveralls.io/repos/dmenne/dlatex/badge.svg?branch=master&service=github)](https://coveralls.io/github/dmenne/dlatex?branch=master)
+[![Travis-CI Build Status](https://travis-ci.org/dmenne/dlatex.svg?branch=master)](https://travis-ci.org/dmenne/dlatex) [![Coverage Status](https://coveralls.io/repos/dmenne/dlatex/badge.svg?branch=master&service=github)](https://coveralls.io/github/dmenne/dlatex?branch=master)
 
-[![Coverage Status](https://coveralls.io/repos/github/dmenne/dlatex/badge.svg?branch=master)](https://coveralls.io/github/dmenne/dlatex?branch=master)
 
 # Pretty-print LaTex lm, lme and glm tables
 
