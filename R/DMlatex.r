@@ -24,6 +24,7 @@
 #' @param lines.page set to high value to avoid problem with longtable
 #' @param \dots other parameters forwarded to \code{latex.default}. Use
 #' rownames=NULL to include rownames.
+#' @importFrom stats as.formula coefficients formula var
 #' @export DMlatex
 #' @export DMlatex.default
 #' @export DMlatex.summary.formula.reverse
@@ -132,12 +133,13 @@ DMlatex.summary.formula.reverse =
            where = "!htbp",
            rowlabel = "",
            mincapwidth, width, cellTexCmds, lines.page = 10000, ...) {
-    latex.summary.formula.reverse(
+    stopifnot(class(object) == "summary.formula.reverse")
+    Hmisc::latex(
       object,ctable = ctable,file = file, na.blank = TRUE,
       longtable = longtable, caption.loc = "bottom",label = label,
       insert.bottom = FALSE,   booktabs = !ctable,
       caption = caption, lines.page = lines.page, where = where,
-      first.hline.double = FALSE,width = width,...
+      first.hline.double = FALSE,width = width, ...
     )
   }
 
@@ -147,8 +149,9 @@ DMlatex.summary.formula.cross =
            where = "!htbp",
            rowlabel = "",
            mincapwidth, width, cellTexCmds = NULL, lines.page = 10000, ...) {
-    latex.summary.formula.cross(
-      object,ctable = ctable,file = file, na.blank = TRUE,
+    stopifnot(class(object) == "summary.formula.cross")
+    Hmisc::latex(
+      object, ctable = ctable,file = file, na.blank = TRUE,
       longtable = longtable, caption.loc = "bottom",label = label,
       caption = caption, lines.page = lines.page, where = where,
       first.hline.double = FALSE,width = width,booktabs = !ctable,...
