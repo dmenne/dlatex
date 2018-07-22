@@ -1,9 +1,12 @@
 Package: Dlatex
 Title: Dieter Menne's Latex Related Functions
 Description: Latex functions for lme, glm, and tables.
-Version: 0.2.2
+Version: 0.2.3
+Depends: R (>= 3.4.0)
 Imports: Hmisc (>= 3.0-0),RODBC, nlme 
 Suggests: gdata, stringr, testthat, xtable,covr
 Author: Dieter Menne <dieter.menne@menne-biomed.de>
 Maintainer: Dieter Menne<dieter.menne@menne-biomed.de>
-License:  GPL-2
+License: GPL-2
+RoxygenNote: 6.0.1.9000
+Encoding: UTF-8

@@ -227,7 +227,7 @@
     ## Changed 8.10.2008, not regression-tested
     v1 <- all.vars(form)[-1]
     numnames <- v1[is.na(match(v1,names(levs)))]
-    if (length(numnames > 0)) {
+    if (length(numnames) > 0) {
       numnames <- paste(numnames," = 0",collapse = ", ")
       levnames <- paste(levnames,numnames,sep = ", ")
     }
